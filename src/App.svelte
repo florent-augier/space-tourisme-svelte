@@ -68,7 +68,7 @@
 		content: "";
 		display: block;
 		position: absolute;
-		height: 1px;
+		height: 1.5px;
 		width: calc(100vw - 120%);
 		right: -20px;
 		margin-right: 100%;
