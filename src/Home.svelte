@@ -2,18 +2,20 @@
 </script>
 
 <div id="homepage">
-    <div class="wrapper-text-home">
-        <div id="first-row">SO, YOU WANT TO TRAVEL TO</div>
-        <div id="second-row">SPACE</div>
-        <div id="third-row">
-            Let’s face it; if you want to go to space, you might as well
-            genuinely go to outer space and not hover kind of on the edge of it.
-            Well sit back, and relax because we’ll give you a truly out of this
-            world experience!
+    <div id="grid-home">
+        <div class="wrapper-text-home">
+            <div id="first-row">SO, YOU WANT TO TRAVEL TO</div>
+            <div id="second-row">SPACE</div>
+            <div id="third-row">
+                Let’s face it; if you want to go to space, you might as well
+                genuinely go to outer space and not hover kind of on the edge of
+                it. Well sit back, and relax because we’ll give you a truly out
+                of this world experience!
+            </div>
         </div>
-    </div>
-    <div class="wrapper-explore-button">
-        <button id="explore-space">EXPLORE</button>
+        <div class="wrapper-explore-button">
+            <button id="explore-space">EXPLORE</button>
+        </div>
     </div>
 </div>
 
@@ -24,16 +26,27 @@
         z-index: 1;
         min-height: 100vh;
         width: 100%;
-        min-height: 100vh;
         background-size: cover;
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: end;
+    }
+    #grid-home {
+        width: 100%;
+        /* height: auto;
+        position: absolute; */
+        height: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-around;
+        margin-bottom: 100px;
     }
     .wrapper-text-home {
-        position: absolute;
-        margin-top: 30%;
-        margin-left: 10%;
+        /* margin-top: 30%;
+        margin-left: 10%; */
         width: min-content;
         height: auto;
         display: flex;
@@ -62,9 +75,8 @@
         letter-spacing: 0.5px;
     }
     .wrapper-explore-button {
-        position: absolute;
-        margin-top: 27%;
-        margin-left: 60%;
+        /* margin-top: 27%;
+        margin-left: 60%; */
         width: 300px;
         height: 300px;
         display: flex;
@@ -107,5 +119,39 @@
     #explore-space:hover::before {
         transform: scale(1.5);
         opacity: 1;
+    }
+    @media (max-width: 50rem) {
+        #homepage {
+            justify-content: center;
+            align-items: center;
+        }
+        #grid-home {
+            grid-template-columns: auto;
+            margin: 100px;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        .wrapper-explore-button {
+            margin: auto;
+        }
+        .wrapper-text-home {
+            align-items: center;
+            text-align: center;
+        }
+    }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        #grid-home {
+            grid-template-columns: auto;
+            margin: auto;
+            align-items: center;
+            grid-row-gap: 100px;
+        }
+        .wrapper-explore-button {
+            margin: auto;
+        }
+        .wrapper-text-home {
+            align-items: center;
+            text-align: center;
+        }
     }
 </style>

@@ -4,15 +4,25 @@
 	let selected = navOptions[0];
 	// let intSelected = 0; // selected page index
 
+	let isOpen = false;
+
+	console.log(isOpen);
+
 	function changeComponent(event) {
 		selected = navOptions[event.srcElement.id];
 		// intSelected = event.srcElement.id;
+	}
+
+	function toggleNavigation() {
+		isOpen = !isOpen;
 	}
 </script>
 
 <main>
 	<header>
-		<div><img src="/assets/shared/logo.svg" alt="star is born" /></div>
+		<div id="logo-header-container">
+			<img src="/assets/shared/logo.svg" alt="star is born" />
+		</div>
 		<nav>
 			<ul>
 				{#each navOptions as option, i}
@@ -25,6 +35,14 @@
 				{/each}
 			</ul>
 		</nav>
+		<div id="toggle-button-nav">
+			<button on:click={toggleNavigation}
+				><img
+					alt="open navigation button"
+					src="/assets/shared/icon-hamburger.svg"
+				/></button
+			>
+		</div>
 	</header>
 
 	<svelte:component this={selected.component} />
@@ -112,13 +130,75 @@
 		font-weight: 900;
 		margin-right: 8px;
 	}
+	#toggle-button-nav {
+		display: none;
+		justify-content: flex-end;
+	}
+	#toggle-button-nav button {
+		background-color: transparent;
+		border: none;
+	}
 
 	@media (max-width: 50rem) {
 		header {
 			top: 0;
 		}
+		nav {
+			width: 60%;
+		}
 		nav::before {
 			display: none;
+		}
+		nav ul li a span.number-navbar-link {
+			display: none;
+		}
+	}
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+		header {
+			top: 0;
+		}
+		nav {
+			width: 500px;
+		}
+		nav::before {
+			display: none;
+		}
+		nav ul li a span.number-navbar-link {
+			display: none;
+		}
+	}
+	@media only screen and (max-width: 520px) {
+		header {
+			padding: 20px;
+			justify-content: space-around;
+		}
+		nav {
+			display: none;
+		}
+		#logo-header-container {
+			justify-content: flex-start;
+		}
+		#toggle-button-nav {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+	}
+	@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+		header {
+			padding: 20px;
+		}
+		#logo-header-container {
+			justify-content: flex-start;
+		}
+		nav {
+			display: none;
+		}
+
+		#toggle-button-nav {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
 		}
 	}
 </style>
