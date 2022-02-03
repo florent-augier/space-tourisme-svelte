@@ -1,16 +1,45 @@
 <script>
+	import { onMount } from "svelte";
+
 	import { navOptions } from "./Navbar.svelte";
 
-	let selected = navOptions[0];
-	// let intSelected = 0; // selected page index
+	$: selected = navOptions[0];
+
+	const allLinks = document.getElementsByClassName("link");
+
+	onMount(() => {
+		console.log(window.location);
+	});
+
+	onMount(() => {
+		if (allLinks.length > 0) {
+			allLinks[0].classList.add("active");
+		}
+		for (let i = 0; i < navOptions.length; i++) {
+			if (navOptions[i].url === window.location.hash) {
+				selected = navOptions[i];
+			}
+		}
+	});
 
 	let isOpen = false;
 
-	console.log(isOpen);
+	$: innerWidth = 0;
 
 	function changeComponent(event) {
 		selected = navOptions[event.srcElement.id];
-		// intSelected = event.srcElement.id;
+		for (let y = 0; y < allLinks.length; y++) {
+			for (let i = 0; i < allLinks[y].classList.length; i++) {
+				console.log(allLinks[y].classList[i]);
+
+				if (allLinks[y].classList[i] === "active") {
+					allLinks[y].classList.remove("active");
+				}
+			}
+		}
+		event.target.parentNode.classList.add("active");
+
+		isOpen = !isOpen;
 	}
 
 	function toggleNavigation() {
@@ -18,15 +47,21 @@
 	}
 </script>
 
+<svelte:window bind:innerWidth />
+
 <main>
 	<header>
 		<div id="logo-header-container">
 			<img src="/assets/shared/logo.svg" alt="star is born" />
 		</div>
-		<nav>
+		<nav
+			class="nav {(innerWidth < 520 && isOpen) || innerWidth > 520
+				? `show`
+				: `hidden`}"
+		>
 			<ul>
 				{#each navOptions as option, i}
-					<li>
+					<li class={navOptions[i] === i ? "link active" : "link"}>
 						<a href={option.url} on:click={changeComponent} id={i}
 							><span class="number-navbar-link">0{i}</span
 							>{option.page}</a
@@ -39,7 +74,9 @@
 			<button on:click={toggleNavigation}
 				><img
 					alt="open navigation button"
-					src="/assets/shared/icon-hamburger.svg"
+					src={isOpen
+						? "/assets/shared/icon-close.svg"
+						: "/assets/shared/icon-hamburger.svg"}
 				/></button
 			>
 		</div>
@@ -92,6 +129,9 @@
 		margin-right: 100%;
 		background-color: rgba(255, 255, 255, 0.1);
 	}
+	.show {
+		display: flex;
+	}
 
 	nav ul {
 		position: relative;
@@ -122,12 +162,16 @@
 
 	nav ul li:hover {
 		height: calc(100% - 2px);
-		border-bottom: 2px solid white;
+		border-bottom: 2px solid lightslategray;
 		margin-bottom: -2px;
 	}
 
+	.active:hover {
+		border-color: white;
+	}
+
 	nav ul li a span.number-navbar-link {
-		font-weight: 900;
+		font-family: "Barlow-Bold";
 		margin-right: 8px;
 	}
 	#toggle-button-nav {
@@ -171,10 +215,76 @@
 		header {
 			padding: 20px;
 			justify-content: space-around;
+			z-index: 10;
+			height: 100px;
 		}
-		nav {
-			display: none;
+
+		nav ul {
+			height: 100vh;
+			flex-direction: column;
+			padding: 0;
 		}
+
+		.nav.hidden {
+			transition: all 1s;
+			transform: translateX(150%);
+			position: absolute;
+			display: flex;
+			height: 100vh;
+			z-index: 1000;
+			top: 0;
+			padding: 20px;
+			width: 75%;
+			right: 0;
+			align-items: flex-start;
+		}
+		.nav.hidden ul {
+			height: auto;
+			margin-top: 50px;
+		}
+		.nav.hidden ul li {
+			width: 100%;
+		}
+		.nav.hidden ul li a {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 20px;
+			text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+		}
+		.nav.show {
+			transition: all 1s;
+			transform: translateX(0);
+			position: absolute;
+			display: flex;
+			height: 100vh;
+			z-index: 1000;
+			top: 0;
+			padding: 20px;
+			width: 75%;
+			right: 0;
+			align-items: flex-start;
+		}
+		.nav.show ul {
+			height: auto;
+			margin-top: 50px;
+		}
+		.nav.show ul li {
+			width: 100%;
+		}
+		.nav.show ul li a {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 20px;
+
+			text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+		}
+
+		nav ul li a span.number-navbar-link {
+			display: flex;
+		}
+
 		#logo-header-container {
 			justify-content: flex-start;
 		}
@@ -182,23 +292,60 @@
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
+			z-index: 1000;
 		}
 	}
 	@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 		header {
 			padding: 20px;
+			z-index: 10;
+			height: 100px;
 		}
 		#logo-header-container {
 			justify-content: flex-start;
+			align-self: baseline;
 		}
-		nav {
+		/* nav {
 			display: none;
+		} */
+		.nav.show {
+			transition: all 1s;
+			transform: translateX(0);
+			position: absolute;
+			display: flex;
+			height: 100vh;
+			z-index: 1000;
+			top: 0;
+			width: 75%;
+			right: 0;
+		}
+		.nav.show ul li {
+			width: 100%;
+		}
+		.nav.show ul li a {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+		}
+		.nav.hidden {
+			transition: all 1s;
+			transform: translateX(150%);
+		}
+
+		nav ul {
+			height: 100vh;
+			flex-direction: column;
+			padding: 0;
 		}
 
 		#toggle-button-nav {
-			display: flex;
 			justify-content: flex-end;
-			align-items: center;
+			z-index: 1000;
+		}
+		#toggle-button-nav button {
+			padding: auto;
+			margin: 0;
 		}
 	}
 </style>

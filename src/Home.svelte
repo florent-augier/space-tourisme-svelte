@@ -36,8 +36,6 @@
     }
     #grid-home {
         width: 100%;
-        /* height: auto;
-        position: absolute; */
         height: auto;
         display: grid;
         grid-template-columns: auto auto;
@@ -45,8 +43,6 @@
         margin-bottom: 100px;
     }
     .wrapper-text-home {
-        /* margin-top: 30%;
-        margin-left: 10%; */
         width: min-content;
         height: auto;
         display: flex;
@@ -75,8 +71,6 @@
         letter-spacing: 0.5px;
     }
     .wrapper-explore-button {
-        /* margin-top: 27%;
-        margin-left: 60%; */
         width: 300px;
         height: 300px;
         display: flex;
@@ -104,8 +98,6 @@
         top: 0;
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.1);
-        /* animation: grow 0.7s;
-        -webkit-animation: grow 0.7s; */
         transition-property: transform, opacity;
         transition-duration: 0.7s;
         -webkit-transition-property: transform, opacity;
@@ -124,12 +116,22 @@
         #homepage {
             justify-content: center;
             align-items: center;
+            background: url("/assets/home/background-home-tablet.jpg");
+            min-height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            display: flex;
+            justify-content: center;
+            align-items: end;
         }
         #grid-home {
             grid-template-columns: auto;
             margin: 100px;
             align-items: center;
-            margin-bottom: 0;
+            margin-bottom: 10px;
         }
         .wrapper-explore-button {
             margin: auto;
@@ -138,13 +140,25 @@
             align-items: center;
             text-align: center;
         }
+        #explore-space {
+            width: 200px;
+            height: 200px;
+        }
+        #explore-space::before {
+            width: 200px;
+            height: 200px;
+        }
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+        #homepage {
+            justify-content: center;
+        }
         #grid-home {
             grid-template-columns: auto;
             margin: auto;
             align-items: center;
             grid-row-gap: 100px;
+            padding: 50px;
         }
         .wrapper-explore-button {
             margin: auto;
@@ -152,6 +166,59 @@
         .wrapper-text-home {
             align-items: center;
             text-align: center;
+        }
+        #first-row {
+            font-size: 1.5rem;
+        }
+        #second-row {
+            font-size: 9rem;
+        }
+    }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+        #homepage {
+            background: url("/assets/home/background-home-mobile.jpg");
+            height: calc(100vh - 100px);
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: absolute;
+            z-index: 2;
+        }
+        #grid-home {
+            grid-row-gap: 75px;
+            height: calc(100vh - 100px);
+        }
+        .wrapper-text-home {
+            margin: auto;
+        }
+        .wrapper-text-home * {
+            margin: 0;
+        }
+        #first-row {
+            font-size: 0.8rem;
+        }
+        #second-row {
+            font-size: 5rem;
+        }
+        #third-row {
+            font-size: 0.7rem;
+        }
+        .wrapper-explore-button {
+            width: auto;
+            height: auto;
+        }
+        #explore-space {
+            width: 150px;
+            height: 150px;
+            font-size: 1.5rem;
+        }
+        #explore-space::before {
+            display: none;
         }
     }
 </style>
