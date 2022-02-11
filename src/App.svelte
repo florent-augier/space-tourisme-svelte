@@ -8,15 +8,11 @@
 	const allLinks = document.getElementsByClassName("link");
 
 	onMount(() => {
-		console.log(window.location);
-	});
-
-	onMount(() => {
 		if (allLinks.length > 0) {
 			allLinks[0].classList.add("active");
 		}
 		for (let i = 0; i < navOptions.length; i++) {
-			if (navOptions[i].url === window.location.hash) {
+			if (navOptions[i].url === window.location.pathname) {
 				selected = navOptions[i];
 			}
 		}
@@ -30,8 +26,6 @@
 		selected = navOptions[event.srcElement.id];
 		for (let y = 0; y < allLinks.length; y++) {
 			for (let i = 0; i < allLinks[y].classList.length; i++) {
-				console.log(allLinks[y].classList[i]);
-
 				if (allLinks[y].classList[i] === "active") {
 					allLinks[y].classList.remove("active");
 				}
@@ -111,12 +105,20 @@
 	nav {
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
+		-webkit-box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.1);
 		box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.1);
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
 		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
 		align-items: center;
 		width: 800px;
 		margin-left: auto;
+		position: relative;
 	}
 
 	nav::before {
@@ -166,7 +168,7 @@
 		margin-bottom: -2px;
 	}
 
-	.active:hover {
+	.link.active {
 		border-color: white;
 	}
 
