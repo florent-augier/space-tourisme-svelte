@@ -18,6 +18,8 @@
     $: nestedSelected = destinations[0];
 
     function handleNestedNavigation(event) {
+        console.log(event.srcElement);
+        event.preventDefault();
         nestedSelected = destinations[event.srcElement.id];
 
         for (let y = 0; y < allLinks.length; y++) {
@@ -46,6 +48,7 @@
                     <ul>
                         {#each destinations as destination, i}
                             <li
+                                id={i}
                                 class={nestedSelected[i] === i
                                     ? "nested-link active"
                                     : "nested-link"}
@@ -164,7 +167,10 @@
     #first-row {
         font-family: "Barlow";
         font-size: 1rem;
-        letter-spacing: 0.2rem;
+        letter-spacing: normal;
+        width: 30%;
+        display: flex;
+        justify-content: flex-start;
     }
     #first-row ul {
         display: flex;
@@ -172,25 +178,39 @@
         font-size: 10px;
         font-family: "Barlow";
         list-style: none;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: flex-start;
+        width: 100%;
     }
     #first-row ul li {
-        margin-right: 30px;
-        padding-block: 12px;
+        width: max-content;
+        height: max-content;
     }
-    #first-row ul li:hover {
+
+    #first-row ul li a {
+        font-family: "Barlow";
+        font-size: 12px;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #first-row ul li,
+    #first-row ul li a {
+        color: white;
+    }
+
+    ul li.nested-link:hover {
         height: calc(100% - 2px);
         border-bottom: 2px solid lightslategray;
         margin-bottom: -2px;
     }
-    #first-row ul li a {
-        text-decoration: none;
-        color: white;
-    }
+
     ul li.nested-link.active {
         height: calc(100% - 2px);
-        border-bottom: 1px solid white;
+        border-bottom: 2px solid white;
         margin-bottom: -2px;
     }
 

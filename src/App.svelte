@@ -8,6 +8,8 @@
 	const allLinks = document.getElementsByClassName("link");
 
 	onMount(() => {
+		console.log(window.location);
+
 		if (allLinks.length > 0) {
 			allLinks[0].classList.add("active");
 		}
@@ -23,6 +25,9 @@
 	$: innerWidth = 0;
 
 	function changeComponent(event) {
+		console.log("history", history);
+		event.preventDefault();
+		// history.pushState(null, )
 		selected = navOptions[event.srcElement.id];
 		for (let y = 0; y < allLinks.length; y++) {
 			for (let i = 0; i < allLinks[y].classList.length; i++) {
@@ -32,7 +37,6 @@
 			}
 		}
 		event.target.parentNode.classList.add("active");
-
 		isOpen = !isOpen;
 	}
 
@@ -169,7 +173,9 @@
 	}
 
 	.link.active {
-		border-color: white;
+		height: calc(100% - 2px);
+		border-bottom: 2px solid white;
+		margin-bottom: -2px;
 	}
 
 	nav ul li a span.number-navbar-link {
