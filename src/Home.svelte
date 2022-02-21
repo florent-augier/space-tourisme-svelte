@@ -207,6 +207,7 @@
             align-items: flex-end;
             position: absolute;
             z-index: 2;
+            bottom: env(safe-area-inset-bottom);
         }
         #grid-home {
             grid-row-gap: 75px;

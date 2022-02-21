@@ -8,8 +8,6 @@
 	const allLinks = document.getElementsByClassName("link");
 
 	onMount(() => {
-		console.log(window.location);
-
 		if (allLinks.length > 0) {
 			allLinks[0].classList.add("active");
 		}
@@ -25,9 +23,7 @@
 	$: innerWidth = 0;
 
 	function changeComponent(event) {
-		console.log("history", history);
 		event.preventDefault();
-		// history.pushState(null, )
 		selected = navOptions[event.srcElement.id];
 		for (let y = 0; y < allLinks.length; y++) {
 			for (let i = 0; i < allLinks[y].classList.length; i++) {

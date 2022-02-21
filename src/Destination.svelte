@@ -18,7 +18,6 @@
     $: nestedSelected = destinations[0];
 
     function handleNestedNavigation(event) {
-        console.log(event.srcElement);
         event.preventDefault();
         nestedSelected = destinations[event.srcElement.id];
 
@@ -29,7 +28,11 @@
                 }
             }
         }
-        event.target.parentNode.classList.add("active");
+        if (event.target.tagName === "A") {
+            event.target.parentNode.classList.add("active");
+        } else {
+            event.target.classList.add("active");
+        }
     }
 </script>
 
@@ -168,7 +171,7 @@
         font-family: "Barlow";
         font-size: 1rem;
         letter-spacing: normal;
-        width: 30%;
+        width: 40%;
         display: flex;
         justify-content: flex-start;
     }
@@ -330,6 +333,9 @@
         }
         .wrapper-text-home {
             align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            text-align: center;
         }
         .wrapper-image-grid img {
             width: 300px;
@@ -352,6 +358,8 @@
         }
         #third-row {
             margin-bottom: 20px;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
         }
         #fourth-row {
             margin-bottom: 0;
