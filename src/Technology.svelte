@@ -508,7 +508,7 @@
             margin-bottom: auto;
         }
         #third-row {
-            font-size: 18px;
+            font-size: 14px;
         }
     }
     @media only screen and (max-device-width: 320px) {

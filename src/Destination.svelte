@@ -410,7 +410,7 @@
             font-size: 12px;
         }
         .data-result {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
     }
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
