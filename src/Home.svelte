@@ -24,7 +24,7 @@
         background: url("/assets/home/background-home-desktop.jpg");
         top: 0;
         z-index: 1;
-        min-height: 100vh;
+        min-height: calc(100 * var(--vh));
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -129,7 +129,7 @@
             justify-content: center;
             align-items: center;
             background: url("/assets/home/background-home-tablet.jpg");
-            min-height: 100vh;
+            min-height: calc(100 * var(--vh));
             width: 100%;
             background-size: cover;
             background-repeat: no-repeat;
@@ -181,6 +181,7 @@
             align-items: center;
             grid-row-gap: 100px;
             padding: 50px;
+            flex-direction: column;
         }
         .wrapper-explore-button {
             margin: auto;
@@ -199,7 +200,7 @@
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
         #homepage {
             background: url("/assets/home/background-home-mobile.jpg");
-            height: calc(100vh - 100px);
+            height: calc(100 * var(--vh) - 100px);
             width: 100%;
             background-size: cover;
             background-repeat: no-repeat;
@@ -214,7 +215,7 @@
         }
         #grid-home {
             grid-row-gap: 75px;
-            height: calc(100vh - 100px);
+            height: calc(100 * var(--vh) - 100px);
         }
         .wrapper-text-home {
             margin: auto;

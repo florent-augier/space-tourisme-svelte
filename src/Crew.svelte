@@ -102,8 +102,8 @@
         background: url("/assets/crew/background-crew-desktop.jpg");
         top: 0;
         z-index: 1;
-        min-height: 100vh;
-        height: 100vh;
+        min-height: calc(100 * var(--vh));
+        height: calc(100 * var(--vh));
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -143,7 +143,7 @@
         justify-content: space-evenly;
         align-items: center;
         margin: auto;
-        height: calc(100vh - 200px);
+        height: calc(100 * var(--vh) - 200px);
         color: white;
         position: inherit;
     }
@@ -276,7 +276,7 @@
     }
     @media (max-width: 50rem) {
         #wrapper-grid-crew {
-            height: calc(100vh - 100px);
+            height: calc(100 * var(--vh) - 100px);
         }
         #header-crew {
             margin-bottom: 20px;
@@ -327,13 +327,14 @@
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         #wrapper-grid-crew {
-            height: calc(100vh - 100px);
+            height: calc(100 * var(--vh) - 100px);
         }
         #header-crew {
             margin-bottom: 20px;
         }
         #grid-crew {
             margin-bottom: 0;
+            flex-direction: column;
         }
         .wrapper-text-home {
             align-items: center;

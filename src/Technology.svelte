@@ -123,8 +123,8 @@
         background: url("/assets/technology/background-technology-desktop.jpg");
         top: 0;
         z-index: 1;
-        min-height: 100vh;
-        height: 100vh;
+        min-height: calc(100 * var(--vh));
+        height: calc(100 * var(--vh));
         width: 100%;
         background-size: cover;
         background-repeat: no-repeat;
@@ -145,7 +145,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: calc(100vh - 200px);
+        height: calc(100 * var(--vh) - 200px);
         margin-top: auto;
         width: 90%;
         margin-left: auto;
@@ -314,7 +314,7 @@
 
     @media (max-width: 50rem) {
         #wrapper-grid-technology {
-            height: calc(100vh - 100px);
+            height: calc(100 * var(--vh) - 100px);
             width: 100%;
         }
         #header-technology {
@@ -381,7 +381,7 @@
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
         #wrapper-grid-technology {
-            height: calc(100vh - 100px);
+            height: calc(100 * var(--vh) - 100px);
         }
         #header-technology {
             margin-bottom: 20px;
@@ -414,6 +414,7 @@
             text-align: center;
             padding: 8px;
             justify-content: center;
+            margin: auto;
         }
         #wrapper-remaining-row p {
             text-align: center;

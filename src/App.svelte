@@ -91,7 +91,7 @@
 
 <style>
 	main {
-		min-height: 100vh;
+		min-height: calc(100 * var(--vh));
 		width: 100vw;
 		background-color: black;
 	}
@@ -234,7 +234,7 @@
 		}
 
 		nav ul {
-			height: 100vh;
+			height: calc(100 * var(--vh));
 			flex-direction: column;
 			padding: 0;
 		}
@@ -244,7 +244,7 @@
 			transform: translateX(150%);
 			position: absolute;
 			display: flex;
-			height: 100vh;
+			height: calc(100 * var(--vh));
 			z-index: 1000;
 			top: 0;
 			padding: 20px;
@@ -271,7 +271,7 @@
 			transform: translateX(0);
 			position: absolute;
 			display: flex;
-			height: 100vh;
+			height: calc(100 * var(--vh));
 			z-index: 1000;
 			top: 0;
 			padding: 20px;
@@ -327,7 +327,7 @@
 			transform: translateX(0);
 			position: absolute;
 			display: flex;
-			height: 100vh;
+			height: calc(100 * var(--vh));
 			z-index: 1000;
 			top: 0;
 			width: 75%;
@@ -348,7 +348,7 @@
 		}
 
 		nav ul {
-			height: 100vh;
+			height: calc(100 * var(--vh));
 			flex-direction: column;
 			padding: 0;
 		}
