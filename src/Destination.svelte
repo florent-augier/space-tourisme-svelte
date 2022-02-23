@@ -386,6 +386,7 @@
         #third-row {
             width: 100%;
             font-size: 12px;
+            margin-bottom: 4px;
         }
         .wrapper-text-home {
             justify-content: space-around;
@@ -399,11 +400,12 @@
         #wrapper-travel-info {
             flex-direction: column;
             text-align: center;
+            margin-bottom: 4px;
         }
         #wrapper-travel-info div,
         #wrapper-travel-info p {
             text-align: start;
-            padding: 4px;
+            padding: 2px;
             text-align: center;
         }
         .data-header {
@@ -415,7 +417,7 @@
     }
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
         hr#separator {
-            margin-bottom: 8px;
+            margin-bottom: 0;
         }
     }
     @media only screen and (max-device-width: 320px) {
@@ -424,7 +426,7 @@
             height: 120px;
         }
         hr#separator {
-            margin-bottom: 8px;
+            margin-bottom: 0;
         }
         .data-header {
             font-size: 8px;
