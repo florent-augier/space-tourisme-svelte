@@ -67,17 +67,20 @@
         font-family: "Barlow";
         font-size: 1rem;
         letter-spacing: 0.2rem;
+        color: rgba(255, 255, 255, 0.7);
     }
     #second-row {
         font-family: "Bellefair";
         font-size: 7rem;
         letter-spacing: 0.2rem;
+        margin-top: 12px;
     }
     #third-row {
         font-family: "Barlow";
         font-size: 0.8rem;
         line-height: 1.2rem;
         letter-spacing: 0.5px;
+        color: rgba(255, 255, 255, 0.7);
     }
     .wrapper-explore-button {
         width: 300px;

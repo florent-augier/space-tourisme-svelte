@@ -5,25 +5,17 @@
     const allLinks = document.getElementsByClassName("nested-link");
 
     $: innerWidth = 0;
-
     const allWrapperTextHome =
         document.getElementsByClassName("wrapper-text-home");
-
     onMount(() => {
         let wrapperTextHome = allWrapperTextHome[0];
-
         const firstElement = wrapperTextHome.firstChild;
         const lastElement = wrapperTextHome.lastChild;
 
         if (innerWidth <= 520) {
             console.log("largeur d'écran inférieur ou égale à 320", innerWidth);
             console.log(wrapperTextHome);
-            let myArray = Array.from(allWrapperTextHome);
             wrapperTextHome.insertBefore(lastElement, firstElement);
-
-            // allWrapperTextHome.pop();
-
-            // allWrapperTextHome.unshift(lastElement);
         }
 
         if (allLinks.length > 0) {
@@ -265,7 +257,7 @@
     .wrapper-image-grid {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         width: 100%;
         height: inherit;
     }
@@ -277,6 +269,9 @@
     @media (max-width: 70rem) {
         #first-row {
             width: 200px;
+        }
+        #grid-crew {
+            width: 90%;
         }
     }
     @media (max-width: 50rem) {
@@ -298,6 +293,9 @@
         .wrapper-text-home {
             align-items: center;
             text-align: center;
+        }
+        .wrapper-image-grid {
+            align-items: flex-end;
         }
         .wrapper-image-grid img {
             width: auto;
@@ -342,6 +340,9 @@
             justify-content: space-between;
             text-align: center;
         }
+        .wrapper-image-grid {
+            align-items: center;
+        }
         .wrapper-image-grid img {
             width: auto;
             height: 500px;
@@ -379,6 +380,7 @@
         }
         .wrapper-image-grid {
             flex-direction: column;
+            align-items: center;
         }
         .wrapper-image-grid img {
             width: auto;

@@ -8,6 +8,16 @@
 	const allLinks = document.getElementsByClassName("link");
 
 	onMount(() => {
+		window.addEventListener("resize", () => {
+			document
+				.querySelector(":root")
+				.style.setProperty("--vh", window.innerHeight / 100 + "px");
+		});
+
+		document
+			.querySelector(":root")
+			.style.setProperty("--vh", window.innerHeight / 100 + "px");
+
 		if (allLinks.length > 0) {
 			allLinks[0].classList.add("active");
 		}

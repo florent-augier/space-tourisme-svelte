@@ -4,6 +4,8 @@
 
     const allLinks = document.getElementsByClassName("nested-link");
 
+    $: nestedSelected = destinations[0];
+
     onMount(() => {
         if (allLinks.length > 0) {
             allLinks[0].classList.add("active");
@@ -14,8 +16,6 @@
             }
         }
     });
-
-    $: nestedSelected = destinations[0];
 
     function handleNestedNavigation(event) {
         event.preventDefault();
@@ -129,7 +129,7 @@
     }
     #grid-destination {
         width: 100%;
-        height: auto;
+        height: 100%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -137,7 +137,6 @@
         justify-content: space-evenly;
         align-items: center;
         margin: auto;
-        height: calc(100vh - 200px);
         color: white;
     }
     #grid-destination > * {
@@ -227,7 +226,7 @@
         font-size: 0.8rem;
         line-height: 1.2rem;
         letter-spacing: 0.5px;
-        margin-bottom: 50px;
+        margin-bottom: auto;
         width: 80%;
         color: rgba(255, 255, 255, 0.7);
     }
