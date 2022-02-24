@@ -44,10 +44,25 @@
 		}
 		event.target.parentNode.classList.add("active");
 		isOpen = !isOpen;
+		window.history.replaceState({}, "", selected.url);
 	}
 
 	function toggleNavigation() {
 		isOpen = !isOpen;
+	}
+
+	function handleNavigation() {
+		selected = navOptions[1];
+		for (let y = 0; y < allLinks.length; y++) {
+			for (let i = 0; i < allLinks[y].classList.length; i++) {
+				if (allLinks[y].classList[i] === "active") {
+					allLinks[y].classList.remove("active");
+				}
+			}
+		}
+		allLinks[1].classList.add("active");
+		isOpen = !isOpen;
+		window.history.replaceState({}, "", selected.url);
 	}
 </script>
 
@@ -86,7 +101,10 @@
 		</div>
 	</header>
 
-	<svelte:component this={selected.component} />
+	<svelte:component
+		this={selected.component}
+		on:navigate={handleNavigation}
+	/>
 </main>
 
 <style>

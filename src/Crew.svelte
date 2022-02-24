@@ -13,8 +13,6 @@
         const lastElement = wrapperTextHome.lastChild;
 
         if (innerWidth <= 520) {
-            console.log("largeur d'écran inférieur ou égale à 320", innerWidth);
-            console.log(wrapperTextHome);
             wrapperTextHome.insertBefore(lastElement, firstElement);
         }
 
@@ -23,9 +21,6 @@
         }
         for (let i = 0; i < crew.length; i++) {
             allLinks[i].firstElementChild.textContent = "";
-            if (crew[i].url === window.location.hash) {
-                selected = crew[i];
-            }
         }
     });
 
@@ -47,6 +42,11 @@
         } else {
             event.target.classList.add("active");
         }
+        window.history.replaceState(
+            {},
+            "",
+            window.location.pathname + nestedSelected.url
+        );
     }
 </script>
 

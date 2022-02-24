@@ -48,6 +48,7 @@
   "crew": [
     {
       "name": "DOUGLAS HURLEY",
+      "url": "#douglas-hurley",
       "images": {
         "png": "/assets/crew/image-douglas-hurley.png",
         "webp": "/assets/crew/image-douglas-hurley.webp"
@@ -57,6 +58,7 @@
     },
     {
       "name": "MARK SHUTTLEWORTH",
+      "url": "#mark-shuttleworth",
       "images": {
         "png": "/assets/crew/image-mark-shuttleworth.png",
         "webp": "/assets/crew/image-mark-shuttleworth.webp"
@@ -66,6 +68,7 @@
     },
     {
       "name": "VICTOR GLOVER",
+      "url": "#victor-glover",
       "images": {
         "png": "/assets/crew/image-victor-glover.png",
         "webp": "/assets/crew/image-victor-glover.webp"
@@ -75,6 +78,7 @@
     },
     {
       "name": "ANOUSHEH ANSARI",
+      "url": "#anousheh-ansari",
       "images": {
         "png": "/assets/crew/image-anousheh-ansari.png",
         "webp": "/assets/crew/image-anousheh-ansari.webp"
@@ -86,6 +90,7 @@
   "technology": [
     {
       "name": "LAUNCH VEHICLE",
+      "url": "#launch-vehicle",
       "images": {
         "portrait": "./assets/technology/image-launch-vehicle-portrait.jpg",
         "landscape": "./assets/technology/image-launch-vehicle-landscape.jpg"
@@ -94,6 +99,7 @@
     },
     {
       "name": "SPACEPORT",
+      "url": "#spaceport",
       "images": {
         "portrait": "./assets/technology/image-spaceport-portrait.jpg",
         "landscape": "./assets/technology/image-spaceport-landscape.jpg"
@@ -102,6 +108,7 @@
     },
     {
       "name": "SPACE CAPSULE",
+      "url": "#space-capsule",
       "images": {
         "portrait": "/assets/technology/image-space-capsule-portrait.jpg",
         "landscape": "/assets/technology/image-space-capsule-landscape.jpg"

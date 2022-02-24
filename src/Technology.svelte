@@ -10,12 +10,8 @@
 
     onMount(() => {
         if (innerWidth <= 800 || innerWidth < innerHeight) {
-            console.log("vue d'un téléphone");
-            console.log(`height = ${innerHeight} and width = ${innerWidth}`);
             deviceUsed = 0;
         } else {
-            console.log("vue d'un écran large");
-            console.log(`height = ${innerHeight} and width = ${innerWidth}`);
             deviceUsed = 1;
         }
         if (allLinks.length > 0) {
@@ -23,9 +19,6 @@
         }
         for (let i = 0; i < technology.length; i++) {
             allLinks[i].firstElementChild.textContent = i + 1;
-            if (technology[i].url === window.location.hash) {
-                selected = technology[i];
-            }
         }
     });
 
@@ -33,12 +26,8 @@
 
     function handleResizeWindow() {
         if (innerWidth <= 800 || innerWidth < innerHeight) {
-            console.log("vue d'un téléphone");
-            console.log(`height = ${innerHeight} and width = ${innerWidth}`);
             deviceUsed = 0;
         } else {
-            console.log("vue d'un écran large");
-            console.log(`height = ${innerHeight} and width = ${innerWidth}`);
             deviceUsed = 1;
         }
     }
@@ -59,6 +48,11 @@
         } else {
             event.target.classList.add("active");
         }
+        window.history.replaceState(
+            {},
+            "",
+            window.location.pathname + nestedSelected.url
+        );
     }
 </script>
 
@@ -261,13 +255,14 @@
         display: flex;
         width: 48px;
         height: 48px;
-        border: 1px solid white;
         border-radius: 50%;
+        border: 1px solid white;
         margin-bottom: 0;
         justify-content: center;
         align-items: center;
         font-family: "Bellefair";
         font-size: 1.5rem;
+        text-decoration: none;
     }
 
     ul li.nested-link a {

@@ -1,4 +1,13 @@
 <script>
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
+    function goToDestinaton() {
+        dispatch("navigate", {
+            component: "Destination",
+        });
+    }
 </script>
 
 <div id="homepage">
@@ -14,7 +23,8 @@
             </div>
         </div>
         <div class="wrapper-explore-button">
-            <button id="explore-space">EXPLORE</button>
+            <button id="explore-space" on:click={goToDestinaton}>EXPLORE</button
+            >
         </div>
     </div>
 </div>

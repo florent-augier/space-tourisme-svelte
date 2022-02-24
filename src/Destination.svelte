@@ -10,17 +10,11 @@
         if (allLinks.length > 0) {
             allLinks[0].classList.add("active");
         }
-        for (let i = 0; i < destinations.length; i++) {
-            if (destinations[i].url === window.location.hash) {
-                selected = destinations[i];
-            }
-        }
     });
 
     function handleNestedNavigation(event) {
         event.preventDefault();
         nestedSelected = destinations[event.srcElement.id];
-
         for (let y = 0; y < allLinks.length; y++) {
             for (let i = 0; i < allLinks[y].classList.length; i++) {
                 if (allLinks[y].classList[i] === "active") {
@@ -33,6 +27,12 @@
         } else {
             event.target.classList.add("active");
         }
+
+        window.history.replaceState(
+            {},
+            "",
+            window.location.pathname + nestedSelected.url
+        );
     }
 </script>
 
