@@ -44,15 +44,15 @@
 		}
 		event.target.parentNode.classList.add("active");
 		isOpen = !isOpen;
-		window.history.replaceState({}, "", selected.url);
+
+		window.history.pushState({}, "", selected.url);
 	}
 
 	function toggleNavigation() {
 		isOpen = !isOpen;
 	}
 
-	function handleNavigation() {
-		selected = navOptions[1];
+	function handleNavigation(event) {
 		for (let y = 0; y < allLinks.length; y++) {
 			for (let i = 0; i < allLinks[y].classList.length; i++) {
 				if (allLinks[y].classList[i] === "active") {
@@ -60,7 +60,14 @@
 				}
 			}
 		}
-		allLinks[1].classList.add("active");
+
+		if (event.detail.component === "Destination") {
+			selected = navOptions[1];
+			allLinks[1].classList.add("active");
+		} else {
+			selected = navOptions[0];
+			allLinks[0].classList.add("active");
+		}
 		isOpen = !isOpen;
 		window.history.replaceState({}, "", selected.url);
 	}
@@ -337,9 +344,7 @@
 			justify-content: flex-start;
 			align-self: baseline;
 		}
-		/* nav {
-			display: none;
-		} */
+
 		.nav.show {
 			transition: all 1s;
 			transform: translateX(0);
