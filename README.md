@@ -64,11 +64,7 @@ To see how you can add code snippets, see below:
 		on:navigate={handleNavigation}
 	/>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+
 ```js
 	$: selected = navOptions[0];
 ```
